@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn Learnpf_Vis1:app
