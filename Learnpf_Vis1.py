@@ -3,8 +3,6 @@ import plotly.express as px
 import plotly.graph_objects as go
 import dash
 import pandas as pd
-import jupyter_dash as jd
-from jupyter_dash import JupyterDash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
@@ -17,8 +15,30 @@ import warnings
 warnings.filterwarnings('ignore')
 for p in [plotly, dash, jd, dcc, html, dbc, pd,]:
     print(f'{p.__name__:-<30}v{p.__version__}')
+    
+try:
+    import kaggle
 
-learnpf=  JupyterDash(__name__, external_stylesheets=[dbc.themes.COSMO])
+    kaggle.api.authenticate()
+    kaggle.api.dataset_download_files('kamaljp/learn-platform-districtengagement', path='./data', unzip=True)
+except:
+    print('download kaggle auth to ~/.kaggle.json')
+    
+product = pd.read_csv("/data/district_engagement.csv",index_col=0,parse_dates=['time'])
+product_focus = pd.read_csv("/data/product_focus.csv")
+id_name = product_focus[['LP_ID','Product_Name']]
+product = pd.merge(left=product,right=id_name,left_on='lp_id',right_on='LP_ID',how='left')
+product = product[product.lp_id.isin(id_name.LP_ID)]
+district_modified = pd.read_csv('/data/district_modified.csv')
+product = product[product.district.isin(district_modified.district_id)]
+product = pd.merge(left=product,right=district_modified[['state','district_id']],left_on='district',
+                   right_on='district_id',how='left')
+product.drop(['LP_ID','district_id'],inplace=True,axis=1)
+product.time = product.time.apply(lambda x : pd.to_datetime(x,format='%Y-%m-%d'))
+
+    
+    
+learnpf=  dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
 
 def make_empty_fig():
     fig = go.Figure()
