@@ -1,4 +1,5 @@
 import plotly
+import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import dash
@@ -13,8 +14,6 @@ pd.options.display.max_columns = None
 from plotly.subplots import make_subplots
 import warnings
 warnings.filterwarnings('ignore')
-for p in [plotly, dash, jd, dcc, html, dbc, pd,]:
-    print(f'{p.__name__:-<30}v{p.__version__}')
     
 try:
     import kaggle
