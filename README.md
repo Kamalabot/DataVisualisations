@@ -11,22 +11,54 @@ the graphs provide unique insights and knowledge that is very difficult to forge
 
 ## Libraries used in the notebooks are:
 
-1. BeautifulSoup
-2. Dataset
-3. Pandas
-4. Plotly
-5. Seaborn
-6. Scikit Learn
-7. Requests
-8. Warnings
-9. Tensorflow
-10. Textwrap
-11. matplotlib
-12. wordcloud
-13. glob
-14. os
-15. 
+* Data Discovery:-
 
+BeautifulSoup
+
+Requests
+
+Dataset
+
+Selenium
+
+* Data Wrangling:-
+
+Pandas
+
+Numpy
+
+Textwrap
+
+Glob
+
+Os
+
+* Data Visualising:-
+
+Plotly
+
+Seaborn
+
+Matplotlib
+
+Wordcloud
+
+Dash
+
+Jupyter_dash
+
+* Data Prediction:-
+
+Scikit Learn
+
+XGBoost
+
+CatBoost
+
+Tensorflow
+
+Statmodel for acf and pacf
+ 
 Self-contained narrative of the data, the wrangling process followed by visualisation is the pattern followed in every notebook. The purpose
 and the findings are shown at the beginning. The contents following that, provides way points to specific locations in the notebook. 
 
