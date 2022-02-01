@@ -11,20 +11,21 @@ the graphs provide unique insights and knowledge that is very difficult to forge
 
 ## Libraries used in the notebooks are:
 
-BeautifulSoup
-Dataset
-Pandas
-Plotly
-Seaborn
-Scikit Learn
-Requests
-Warnings
-Tensorflow
-Textwrap
-matplotlib
-wordcloud
-glob
-os
+1. BeautifulSoup
+2. Dataset
+3. Pandas
+4. Plotly
+5. Seaborn
+6. Scikit Learn
+7. Requests
+8. Warnings
+9. Tensorflow
+10. Textwrap
+11. matplotlib
+12. wordcloud
+13. glob
+14. os
+15. 
 
 Self-contained narrative of the data, the wrangling process followed by visualisation is the pattern followed in every notebook. The purpose
 and the findings are shown at the beginning. The contents following that, provides way points to specific locations in the notebook. 
